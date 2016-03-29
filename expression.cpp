@@ -30,37 +30,6 @@ SOFTWARE.
 #include <iostream>
 #include "expression.hpp"
 
-enum token_type
-{
-	token_open,
-	token_close,
-	token_pow,
-	token_mult,
-	token_div,
-	token_add,
-	token_sub,
-	token_num,
-	token_var,
-	token_comma,
-	token_function,
-};
-
-struct token
-{
-	token_type type; // The type of token.
-	std::string contents; // Actual string of the token.
-	double value; // Numbers store their value here.
-	bool isop; // Is it an operatator?
-	bool isopleft; // Does the operator associate to the left or right?
-	int oppres; // Order of operatations.
-};
-
-struct function_data
-{
-	std::function<double(double*, int args)> func;
-	int argcount;
-};
-
 expression::expression()
 {
 	vars = std::map<char, double>();
