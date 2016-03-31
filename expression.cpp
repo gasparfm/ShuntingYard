@@ -215,7 +215,7 @@ std::deque<token> expression::parse(std::deque<token> tokens)
 
 			opstack.pop();
 			// Function handling.
-			if (opstack.top().type == token_type::token_function)
+			if (!opstack.empty() && opstack.top().type == token_type::token_function)
 			{
 				token t = opstack.top();
 				opstack.pop();
